@@ -8,12 +8,19 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Create a list to hold the multiples and 'multiple' to keep track of the current multiple
+        List<double> multiples = new();
+        double multiple = 0;
 
-        return []; // replace this return statement with your own
+        // Loop until we have the required number of multiples
+        while(multiples.Count() < length)
+        {
+            // Increment the multiple by the base number and add the current multiple to the list
+            multiple += number;
+            multiples.Add(multiple);
+        }
+        // Convert the list of multiples to an array and return it
+        return multiples.ToArray();
     }
 
     /// <summary>
@@ -25,9 +32,15 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Create a new list to hold the elements that will be rotated to the front
+        List<int> l1 = new();
+        // Get the last 'amount' elements from the original list
+        l1 = data.GetRange(data.Count - amount, amount);
+        // Remove the last 'amount' elements from the original list and insert the elements from l1 at the beginning of the original list
+        data.RemoveRange(data.Count - amount, amount);
+        data.InsertRange(0, l1);
+        
+
+
     }
 }
